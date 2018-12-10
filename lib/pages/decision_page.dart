@@ -28,7 +28,7 @@ class DecisionPageState extends State<DecisionPage> {
 
           if (state.isAuthenticated){
             _redirectToPage(context, HomePage());
-          } else if (state.isAuthenticating){
+          } else if (state.isAuthenticating || state.hasFailed) {
   //do nothing
           } else {
             _redirectToPage(context, AuthenticationPage());
