@@ -7,7 +7,7 @@ class EmailValidator {
     final RegExp emailExp = new RegExp(_kEmailRule);
 
     if (!emailExp.hasMatch(email) || email.isEmpty){
-      sink.addError('Entre a valid email');
+      sink.addError('Enter a valid email');
     } else {
       sink.add(email);
     }
