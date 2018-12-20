@@ -1,4 +1,4 @@
-import 'package:blocs/bloc_widgets/bloc_event_state_builder.dart';
+import 'package:blocs/bloc_widgets/bloc_state_builder.dart';
 import 'package:blocs/blocs/application_initialization/application_initialization_bloc.dart';
 import 'package:blocs/blocs/application_initialization/application_initialization_event.dart';
 import 'package:blocs/blocs/application_initialization/application_initialization_state.dart';
@@ -31,7 +31,7 @@ class _InitializationPageState extends State<InitializationPage> {
       child: Scaffold(
         body: Container(
           child: Center(
-            child: BlocEventStateBuilder<ApplicationInitializationEvent, ApplicationInitializationState>(
+            child: BlocEventStateBuilder<ApplicationInitializationState>(
               bloc: bloc,
               builder: (BuildContext context, ApplicationInitializationState state){
                 if (state.isInitialized){

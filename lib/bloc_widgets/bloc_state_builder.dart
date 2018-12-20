@@ -1,9 +1,9 @@
 import 'package:blocs/bloc_helpers/bloc_event_state.dart';
 import 'package:flutter/material.dart';
 
-typedef Widget AsyncBlocEventStateBuilder<BlocState>(BuildContext context, BlocState state);
+typedef Widget AsyncBlocStateBuilder<BlocState>(BuildContext context, BlocState state);
 
-class BlocEventStateBuilder<BlocEvent,BlocState> extends StatelessWidget {
+class BlocEventStateBuilder<BlocState> extends StatelessWidget {
   const BlocEventStateBuilder({
     Key key,
     @required this.builder,
@@ -13,7 +13,7 @@ class BlocEventStateBuilder<BlocEvent,BlocState> extends StatelessWidget {
       super(key: key);
 
   final BlocEventStateBase<BlocEvent,BlocState> bloc;
-  final AsyncBlocEventStateBuilder<BlocState> builder;
+  final AsyncBlocStateBuilder<BlocState> builder;
 
   @override
   Widget build(BuildContext context){

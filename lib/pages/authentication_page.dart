@@ -1,5 +1,5 @@
 import 'package:blocs/bloc_helpers/bloc_provider.dart';
-import 'package:blocs/bloc_widgets/bloc_event_state_builder.dart';
+import 'package:blocs/bloc_widgets/bloc_state_builder.dart';
 import 'package:blocs/blocs/authentication/authentication_bloc.dart';
 import 'package:blocs/blocs/authentication/authentication_event.dart';
 import 'package:blocs/blocs/authentication/authentication_state.dart';
@@ -27,7 +27,7 @@ class AuthenticationPage extends StatelessWidget {
           ),
           body: Container(
             child:
-                BlocEventStateBuilder<AuthenticationEvent, AuthenticationState>(
+                BlocEventStateBuilder<AuthenticationState>(
               bloc: bloc,
               builder: (BuildContext context, AuthenticationState state) {
                 if (state.isAuthenticating) {

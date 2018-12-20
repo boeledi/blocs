@@ -20,6 +20,11 @@ abstract class BlocEventStateBase<BlocEvent, BlocState> implements BlocBase {
   Stream<BlocState> get state => _stateController.stream;
 
   ///
+  /// Last State
+  ///
+  BlocState get lastState => _stateController.value;
+
+  ///
   /// External processing of the event
   ///
   Stream<BlocState> eventHandler(BlocEvent event, BlocState currentState);
@@ -40,7 +45,7 @@ abstract class BlocEventStateBase<BlocEvent, BlocState> implements BlocBase {
     // emit any resulting newState
     //
     _eventController.listen((BlocEvent event){
-      BlocState currentState = _stateController.value ?? initialState;
+      BlocState currentState = lastState ?? initialState;
       eventHandler(event, currentState).forEach((BlocState newState){
         _stateController.sink.add(newState);
       });

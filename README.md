@@ -24,3 +24,11 @@ This article introduces some practical use cases of the BLoC pattern:
 
     The source code, through a embryo of a Shopping Basket application, shows how a Widget knows it is part of the Shopping Basket or not, and how it can adapt its behavior accordingly.
 
+<hr/>
+
+## Updated (20 DEC 2018)
+
+* Code clean up
+
+* Additional version of the "DecisionPage" (see decision_page_no_business.dart)
+    This version of the page does not contain any Business Logic but externalizes the Business Logic via the [DecisionStateTransform] which extends the [BlocStateTransformBase]

@@ -1,7 +1,6 @@
 import 'package:blocs/bloc_helpers/bloc_provider.dart';
-import 'package:blocs/bloc_widgets/bloc_event_state_builder.dart';
+import 'package:blocs/bloc_widgets/bloc_state_builder.dart';
 import 'package:blocs/blocs/authentication/authentication_bloc.dart';
-import 'package:blocs/blocs/authentication/authentication_event.dart';
 import 'package:blocs/blocs/authentication/authentication_state.dart';
 import 'package:blocs/pages/authentication_page.dart';
 import 'package:blocs/pages/home_page.dart';
@@ -20,7 +19,7 @@ class DecisionPageState extends State<DecisionPage> {
   @override
   Widget build(BuildContext context) {
     AuthenticationBloc bloc = BlocProvider.of<AuthenticationBloc>(context);
-    return BlocEventStateBuilder<AuthenticationEvent, AuthenticationState>(
+    return BlocEventStateBuilder<AuthenticationState>(
       bloc: bloc,
       builder: (BuildContext context, AuthenticationState state) {
         if (state != oldAuthenticationState){
@@ -28,7 +27,7 @@ class DecisionPageState extends State<DecisionPage> {
 
           if (state.isAuthenticated){
             _redirectToPage(context, HomePage());
-          } else if (state.isAuthenticating){
+          } else if (state.isAuthenticating || state.hasFailed){
   //do nothing
           } else {
             _redirectToPage(context, AuthenticationPage());
@@ -36,7 +35,7 @@ class DecisionPageState extends State<DecisionPage> {
         }
 
         // This page does not need to display anything since it will
-        // always remind behind any active page (and thus 'hidden').
+        // always remain behind any active page (and thus 'hidden').
         return Container();
       }
     );

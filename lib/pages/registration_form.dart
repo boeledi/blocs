@@ -1,4 +1,4 @@
-import 'package:blocs/bloc_widgets/bloc_event_state_builder.dart';
+import 'package:blocs/bloc_widgets/bloc_state_builder.dart';
 import 'package:blocs/blocs/registration/registration_bloc.dart';
 import 'package:blocs/blocs/registration/registration_event.dart';
 import 'package:blocs/blocs/registration/registration_form_bloc.dart';
@@ -40,7 +40,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocEventStateBuilder<RegistrationEvent, RegistrationState>(
+    return BlocEventStateBuilder<RegistrationState>(
         bloc: _registrationBloc,
         builder: (BuildContext context, RegistrationState state) {
           if (state.isBusy) {
