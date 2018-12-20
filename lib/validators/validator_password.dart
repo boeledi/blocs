@@ -13,7 +13,7 @@ class PasswordValidator {
         new RegExp(_kMin8CharsOneUpperOneLowerOneNumberOneSpecial);
 
     if (!passwordExp.hasMatch(password)){
-      sink.addError('Entre a valid password');
+      sink.addError('Enter a valid password');
     } else {
       sink.add(password);
     }
