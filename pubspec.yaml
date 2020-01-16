@@ -9,7 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  rxdart:
+  rxdart: ^0.21.0
   cupertino_icons: ^0.1.2
 
 dev_dependencies:
